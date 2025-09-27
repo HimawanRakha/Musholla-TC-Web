@@ -1,0 +1,621 @@
+/* === GENERAL STYLES === */
+:root {
+  --primary-color: #795c3a; /* Warna coklat dari desain */
+  --secondary-color: #f0ebe3;
+  --dark-color: #212529;
+  --light-color: #ffffff;
+  --font-family: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--dark-color);
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10rem;
+}
+
+section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* === HEADER & HERO === */
+header#home {
+  height: 100vh;
+  background-image: url("../assets/bg-main.png"); /* Ganti dengan gambar Anda */
+  background-size: cover;
+  background-position: center;
+  color: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  transition: background-color 0.3s;
+}
+
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav ul li a {
+  padding: 10px 40px; /* 10px atas-bawah, 15px kiri-kanan */
+  text-decoration: none;
+  color: white;
+  display: block; /* Penting agar padding bekerja sempurna */
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.hero-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.arrow-down {
+  position: absolute;
+  bottom: 9rem;
+  color: white;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* === TENTANG SECTION === */
+#tentang {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 10rem 0 15rem 0; /* Padding atas dan bawah yang normal */
+  position: relative;
+}
+
+.content-tentang {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.content-tentang .text-content {
+  flex: 1;
+}
+
+.text-content .subtitle {
+  font-weight: 600;
+}
+
+.text-content h2 {
+  text-align: left;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.logo-background {
+  flex: 0.5;
+  opacity: 0.2;
+  font-size: 15rem; /* Ukuran placeholder logo */
+  text-align: right;
+}
+
+/* === WAVY DIVIDER === */
+.wavy-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wavy-divider.bottom {
+  position: absolute;
+  bottom: -50px; /* -1px untuk menghindari garis tipis/celah */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wavy-divider.bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px; /* Sesuaikan tinggi gelombang */
+}
+
+.wavy-divider.bottom .shape-fill {
+  fill: var(--primary-color); /* Warna background section DI BAWAHNYA (#tentang) */
+}
+
+/* === FASILITAS SECTION === */
+#fasilitas {
+  background-color: var(--light-color);
+  padding: 10rem 0 15rem 0;
+}
+
+#fasilitas h2 {
+  /* 1. Atur background menjadi linear gradient */
+  background: linear-gradient(to right, #493826, #af865b); /* Coklat tua ke muda */
+  font-size: 3rem;
+  /* 2. Klip background agar hanya tampil di area teks */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 3. Buat warna teks asli menjadi transparan */
+  color: transparent;
+}
+
+.fasilitas-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.fasilitas-description {
+  flex: 1;
+}
+
+.fasilitas-description h3 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.fasilitas-slider {
+  flex: 1;
+  position: relative;
+}
+
+.slider-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.arrow.left {
+  left: -20px;
+}
+.arrow.right {
+  right: -20px;
+}
+
+/* === GALERI SECTION === */
+#galeri {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding-top: 10rem;
+  padding-bottom: 6rem;
+}
+
+.gallery-wrapper {
+  position: relative;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+  scrollbar-width: none; /* Firefox */
+}
+.gallery-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.gallery-item img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 4rem 0 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-content .right {
+  display: flex;
+  gap: 8rem;
+}
+
+.footer-content h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-content ul {
+  list-style: none;
+}
+
+.footer-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-content a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-content a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: start;
+  padding-left: 10rem;
+  border-top: 1px solid #444;
+  padding-top: 2rem;
+}
+
+.location-container {
+  display: flex;
+  align-items: center; /* Menjaga ikon dan teks sejajar di tengah secara vertikal */
+}
+
+.location-icon {
+  width: 40px; /* Atur ukuran ikon sesuai kebutuhan */
+  height: 40px;
+  margin-right: 8px; /* Memberi jarak antara ikon dan teks */
+  fill: red; /* Warna ikon */
+}
+
+/* === FASILITAS SECTION BARU (COVERFLOW) === */
+
+/* Wrapper utama untuk layout 2 kolom */
+.fasilitas-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Kolom kiri untuk teks */
+.fasilitas-text-content {
+  flex: 1; /* Mengambil 1 bagian ruang */
+  padding-right: 2rem;
+}
+
+.fasilitas-text-content h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--primary-color); /* Garis bawah seperti desain */
+  display: inline-block; /* Agar border hanya sepanjang teks */
+  padding-bottom: 0.5rem;
+}
+
+.fasilitas-text-content p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.hamburger {
+  display: none; /* Sembunyikan di desktop secara default */
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Kolom kanan untuk slider gambar */
+.fasilitas-image-slider {
+  flex: 1; /* Mengambil 1.5 bagian ruang, jadi lebih besar dari teks */
+  position: relative; /* Penting untuk posisi tombol navigasi */
+}
+
+/* Kontainer Swiper utama */
+.fasilitas-image-slider .swiper {
+  width: 100%;
+  padding: 2rem 0;
+  overflow: visible; /* PENTING: agar slide di samping terlihat */
+  overflow-x: hidden;
+}
+
+.fasilitas-image-slider .swiper-slide {
+  width: 80%; /* Lebar setiap slide, sisanya untuk slide di samping */
+  opacity: 0.4; /* Slide samping dibuat redup */
+  transform: scale(0.1); /* Slide samping dibuat lebih kecil */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  border-radius: 12px;
+  overflow: hidden; /* Agar gambar mengikuti border-radius */
+}
+
+.fasilitas-image-slider .swiper-slide-active {
+  opacity: 1; /* Slide aktif terang */
+  transform: scale(1); /* Slide aktif ukuran normal */
+}
+
+.fasilitas-image-slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tombol Navigasi */
+.fasilitas-image-slider .swiper-button-next,
+.fasilitas-image-slider .swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--primary-color) !important;
+}
+
+.fasilitas-image-slider .swiper-button-next::after,
+.fasilitas-image-slider .swiper-button-prev::after {
+  font-size: 1.2rem !important; /* Ukuran panah */
+  font-weight: 800;
+}
+
+/* Posisi tombol sedikit ke dalam dari tepi */
+.fasilitas-image-slider .swiper-button-prev {
+  left: 5%;
+}
+.fasilitas-image-slider .swiper-button-next {
+  right: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  /* === UMUM === */
+  section {
+    padding: 4rem 0; /* Kurangi padding di semua section */
+  }
+
+  h2 {
+    font-size: 2rem; /* Kecilkan ukuran judul section */
+  }
+
+  .container {
+    padding: 0 1.5rem; /* Beri sedikit padding di sisi layar */
+  }
+
+  /* === NAVBAR & HAMBURGER MENU === */
+  nav {
+    padding: 1rem 1.5rem;
+    justify-content: end;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: 0px;
+    top: 0px; /* Posisi menu mobile */
+    height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 5rem;
+    width: 60%;
+    transform: translateX(100%); /* Sembunyikan ke kanan */
+    transition: transform 0.5s ease-in;
+    z-index: 100;
+  }
+
+  .nav-links.nav-active {
+    transform: translateX(0%); /* Tampilkan menu */
+  }
+
+  .nav-links li {
+    opacity: 0; /* Sembunyikan link untuk animasi */
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block; /* Tampilkan ikon hamburger */
+    cursor: pointer;
+    z-index: 101; /* Pastikan di atas konten lain */
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animasi hamburger menjadi 'X' */
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Animasi item menu saat muncul */
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  /* === HERO SECTION === */
+  .hero-content h1 {
+    font-size: 2.5rem; /* Kecilkan judul utama */
+  }
+
+  /* === TENTANG SECTION === */
+  .content-tentang {
+    flex-direction: column; /* Susun vertikal */
+    text-align: center;
+  }
+
+  .text-content h2 {
+    text-align: center;
+  }
+
+  .logo-background {
+    display: none; /* Sembunyikan logo besar di mobile agar tidak mengganggu */
+  }
+
+  /* === FASILITAS SECTION === */
+  .fasilitas-wrapper {
+    flex-direction: column; /* Susun vertikal */
+  }
+
+  .fasilitas-text-content {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .fasilitas-text-content h3 {
+    font-size: 2rem;
+  }
+
+  /* === GALERI SECTION === */
+  .gallery-item img {
+    width: 200px; /* Kecilkan sedikit gambar galeri */
+    height: 200px;
+  }
+
+  /* === FOOTER === */
+  .footer-content {
+    flex-direction: column; /* Susun vertikal */
+    text-align: center;
+    gap: 1rem; /* Beri jarak antar blok */
+  }
+
+  .footer-content .location-container {
+    justify-content: center; /* Pusatkan ikon lokasi */
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .footer-content .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Penyesuaian untuk layar yang sangat kecil (opsional) */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .fasilitas-text-content h3 {
+    font-size: 1.8rem;
+  }
+}
