@@ -140,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  
+
   // --- JALANKAN SEMUA FUNGSI ---
   loadSections();
   setupSmoothScroll();

@@ -142,18 +142,19 @@ nav ul li a:hover {
 #tentang {
   background-color: var(--primary-color);
   color: var(--light-color);
-  padding: 10rem 0 15rem 0; /* Padding atas dan bawah yang normal */
+  padding: 10rem 0 15rem 0;
   position: relative;
 }
 
 .content-tentang {
   display: flex;
-  align-items: center;
+  align-items: center;   /* teks dan gambar sejajar tengah */
+  justify-content: space-between; /* kasih jarak otomatis */
   gap: 3rem;
 }
 
 .content-tentang .text-content {
-  flex: 1;
+  flex: 1; /* biar isi teks fleksibel */
 }
 
 .text-content .subtitle {
@@ -166,12 +167,22 @@ nav ul li a:hover {
   margin-bottom: 1rem;
 }
 
-.logo-background {
-  flex: 0.5;
-  opacity: 0.2;
-  font-size: 15rem; /* Ukuran placeholder logo */
-  text-align: right;
+/* Kolom kanan: gambar */
+.tentang-image {
+  flex: 1; 
+  display: flex;
+  justify-content: center; /* gambar di tengah horizontal */
+  align-items: center;     /* gambar di tengah vertikal */
 }
+
+.tentang-image img {
+  max-width: 100%;   /* biar responsive */
+  width: 400px;      /* bisa diubah sesuai kebutuhan */
+  border-radius: 10px; /* opsional biar rapi */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1); /* efek shadow */
+
+}
+
 
 /* === WAVY DIVIDER === */
 .wavy-divider {
@@ -577,11 +588,16 @@ footer {
   .fasilitas-text-content h3 {
     font-size: 2rem;
   }
-
+  
   /* === GALERI SECTION === */
   .gallery-item img {
-    width: 200px; /* Kecilkan sedikit gambar galeri */
-    height: 200px;
+    width: 1000px; 
+    height: 1000px;
+    position: relative;
+    align-items: center;  
+    justify-content: center;
+    display: flex;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* efek shadow */
   }
 
   /* === FOOTER === */
